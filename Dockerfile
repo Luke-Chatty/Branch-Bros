@@ -16,3 +16,4 @@ COPY --from=build /app/dist /usr/share/caddy
 COPY Caddyfile /etc/caddy/Caddyfile
 
 EXPOSE 80
+EXPOSE 3000
