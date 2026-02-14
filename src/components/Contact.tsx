@@ -1,16 +1,21 @@
 import React from 'react';
-import { Phone, Mail, MapPin, Facebook } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Send } from 'lucide-react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import styles from './Contact.module.css';
 
 const Contact: React.FC = () => {
+    useScrollAnimation();
+
     return (
-        <section id="contact" className={`section ${styles.contact}`}>
+        <section id="contact" className={styles.contact}>
             <div className="container">
-                <div className={styles.grid}>
-                    <div className={styles.info}>
-                        <h2 className={styles.heading}>Get in Touch</h2>
+                <div className={styles.wrapper}>
+                    <div className={`${styles.info} fade-up`}>
+                        <span className={styles.badge}>Contact Us</span>
+                        <h2 className={styles.heading}>Ready to Start?</h2>
                         <p className={styles.subheading}>
-                            Ready to transform your outdoor space? Contact us today for a free, no-obligation quote.
+                            Whether it's a small prune or a large removal, our team is ready to help.
+                            Contact us for a free, professional consultation.
                         </p>
 
                         <div className={styles.details}>
@@ -19,8 +24,8 @@ const Contact: React.FC = () => {
                                     <Phone size={24} />
                                 </div>
                                 <div>
-                                    <h3>Phone</h3>
-                                    <p>07901 234 567</p> {/* Placeholder, replace if real number known */}
+                                    <h3>Call Us</h3>
+                                    <p>07901 234 567</p>
                                 </div>
                             </div>
 
@@ -29,8 +34,8 @@ const Contact: React.FC = () => {
                                     <Mail size={24} />
                                 </div>
                                 <div>
-                                    <h3>Email</h3>
-                                    <p>info@branchbros.co.uk</p> {/* Placeholder */}
+                                    <h3>Email Us</h3>
+                                    <p>info@branchbros.co.uk</p>
                                 </div>
                             </div>
 
@@ -39,14 +44,14 @@ const Contact: React.FC = () => {
                                     <MapPin size={24} />
                                 </div>
                                 <div>
-                                    <h3>Location</h3>
-                                    <p>Bolton & Surrounding Areas</p>
+                                    <h3>Service Area</h3>
+                                    <p>Bolton, Bury & Surrounding Areas</p>
                                 </div>
                             </div>
                         </div>
 
                         <div className={styles.social}>
-                            <h3>Follow Us</h3>
+                            <h3>Connect With Us</h3>
                             <a
                                 href="https://www.facebook.com/p/Branch-Bros-Tree-Services-100094115890729/"
                                 target="_blank"
@@ -54,27 +59,55 @@ const Contact: React.FC = () => {
                                 className={styles.socialLink}
                             >
                                 <Facebook size={24} />
-                                <span>Branch Bros Tree Services</span>
+                                <span>Facebook Page</span>
                             </a>
                         </div>
                     </div>
 
-                    <div className={styles.formWrapper}>
+                    <div className={`${styles.formWrapper} fade-up`} style={{ transitionDelay: '0.2s' }}>
                         <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
-                            <h3>Send us a message</h3>
-                            <div className={styles.formGroup}>
-                                <label htmlFor="name">Name</label>
-                                <input type="text" id="name" placeholder="Your Name" />
+                            <div className={styles.formHeader}>
+                                <h3>Send a Message</h3>
+                                <p>We'll get back to you within 24 hours.</p>
                             </div>
-                            <div className={styles.formGroup}>
-                                <label htmlFor="email">Email</label>
-                                <input type="email" id="email" placeholder="Your Email" />
+
+                            <div className={styles.formRow}>
+                                <div className={styles.formGroup}>
+                                    <label htmlFor="name">Full Name</label>
+                                    <input type="text" id="name" placeholder="John Doe" required />
+                                </div>
+                                <div className={styles.formGroup}>
+                                    <label htmlFor="phone">Phone Number</label>
+                                    <input type="tel" id="phone" placeholder="07123 456789" required />
+                                </div>
                             </div>
+
                             <div className={styles.formGroup}>
-                                <label htmlFor="message">Message</label>
-                                <textarea id="message" rows={4} placeholder="How can we help?"></textarea>
+                                <label htmlFor="email">Email Address</label>
+                                <input type="email" id="email" placeholder="john@example.com" required />
                             </div>
-                            <button type="submit" className="btn btn-primary">Send Message</button>
+
+                            <div className={styles.formGroup}>
+                                <label htmlFor="service">Service Needed</label>
+                                <select id="service" className={styles.select}>
+                                    <option value="">Select a service...</option>
+                                    <option value="pruning">Pruning & Reshaping</option>
+                                    <option value="removal">Tree removal</option>
+                                    <option value="stump">Stump Grinding</option>
+                                    <option value="hedge">Hedge Trimming</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <div className={styles.formGroup}>
+                                <label htmlFor="message">How can we help?</label>
+                                <textarea id="message" rows={4} placeholder="Tell us about your project..."></textarea>
+                            </div>
+
+                            <button type="submit" className={styles.submitBtn}>
+                                <span>Submit Request</span>
+                                <Send size={18} />
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -84,3 +117,4 @@ const Contact: React.FC = () => {
 };
 
 export default Contact;
+
