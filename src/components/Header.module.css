@@ -1,0 +1,183 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 20px 0;
+    transition: all 0.4s ease;
+    background-color: rgba(27, 58, 36, 0.85);
+    /* Visible deep green */
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.scrolled {
+    background-color: rgba(27, 58, 36, 0.95);
+    /* Deep green background on scroll */
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Center logo in a U-shape dropdown */
+/* Center logo in a U-shape dropdown */
+.logoWrapper {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 220px;
+    height: 160px;
+    background-color: rgba(27, 58, 36, 0.95);
+    /* Match header color */
+    border-bottom-left-radius: 110px;
+    /* More rounded U shape */
+    border-bottom-right-radius: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(8px);
+    z-index: 1001;
+    transition: all 0.4s ease;
+}
+
+.scrolled .logoWrapper {
+    width: 140px;
+    height: 110px;
+    border-bottom-left-radius: 70px;
+    border-bottom-right-radius: 70px;
+    background-color: rgba(27, 58, 36, 0.98);
+}
+
+.logo {
+    height: 110px;
+    width: auto;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+    transition: all 0.3s ease;
+}
+
+.scrolled .logo {
+    height: 70px;
+}
+
+.leftNav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex: 1;
+    /* Take up available space */
+}
+
+.rightNav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex: 1;
+    /* Take up available space */
+    justify-content: flex-end;
+    /* Align right */
+}
+
+.navLink {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+    font-size: 0.95rem;
+    position: relative;
+    letter-spacing: 0.5px;
+}
+
+.navLink::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--color-secondary);
+    transition: width 0.3s ease;
+}
+
+.navLink:hover {
+    color: white;
+}
+
+.navLink:hover::after {
+    width: 100%;
+}
+
+.ctaBtn {
+    display: inline-flex;
+    align-items: center;
+    background-color: transparent;
+    border: 1px solid var(--color-secondary);
+    color: var(--color-secondary);
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.ctaBtn:hover {
+    background-color: var(--color-secondary);
+    color: #1a1a1a;
+}
+
+.mobileToggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.mobileNav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: #1b3a24;
+    padding: 80px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    transition: right 0.3s ease-in-out;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.mobileNav.open {
+    right: 0;
+}
+
+.mobileNav a {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 12px;
+}
+
+@media (max-width: 768px) {
+
+    .leftNav,
+    .rightNav {
+        display: none;
+    }
+
+    .mobileToggle {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 25px;
+    }
+}
