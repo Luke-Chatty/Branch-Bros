@@ -16,7 +16,7 @@ const Hero: React.FC = () => {
                 <span className={styles.badge}>Est. 2023 &bull; Bolton & Bury</span>
 
                 <h1 className={styles.title}>
-                    Elevating <br />
+                    Branch Bros <br />
                     <span className={styles.highlight}>Tree Services</span>
                 </h1>
 
