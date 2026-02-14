@@ -174,10 +174,38 @@
         display: none;
     }
 
+    .logoWrapper {
+        display: none;
+        /* Hide large U-shape logo on mobile */
+    }
+
     .mobileToggle {
         display: block;
         position: absolute;
         right: 20px;
         top: 25px;
+        z-index: 1002;
+    }
+
+    /* Persistent Mobile Call Button */
+    .mobileCallBtn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        bottom: 20px;
+        /* Floating at bottom for easy thumb reach */
+        left: 20px;
+        right: 20px;
+        background-color: var(--color-secondary);
+        color: #1a1a1a;
+        padding: 16px;
+        border-radius: 50px;
+        font-weight: 700;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        z-index: 2000;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        animation: float 3s ease-in-out infinite;
     }
 }

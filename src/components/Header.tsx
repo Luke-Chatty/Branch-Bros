@@ -50,6 +50,12 @@ const Header: React.FC = () => {
                     <a href="#services" onClick={() => setMobileMenuOpen(false)}>Services</a>
                     <a href="#contact" onClick={() => setMobileMenuOpen(false)}>Contact</a>
                 </div>
+
+                {/* Mobile Persistent Call Button */}
+                <a href="tel:07901234567" className={styles.mobileCallBtn}>
+                    <Phone size={20} style={{ marginRight: '10px' }} />
+                    Call Now
+                </a>
             </div>
         </header>
     );
